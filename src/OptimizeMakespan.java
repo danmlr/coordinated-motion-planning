@@ -1,11 +1,12 @@
 /**
  * Main program that takes as input a JSON storing the set of starting and target positions of robots
- * and computes a solution to the coordinated motion problem, minimizing the 'makespan'
+ * and computes a solution to the coordinated motion problem, minimizing the 'makespan'.
  * 
  * @author Luca Castelli Aleardi (Ecole Polytechnique, INF421, dec 2020)
  * @author Gonzague de Carpentier (Ecole Polytechnique) 
  * @author Dan Meller (Ecole Polytechnique)
  */
+
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 
 
 public class OptimizeMakespan {
-	
+
 	public static Instance input; 
 	
 	static int pmin = 0; 
@@ -31,15 +32,15 @@ public class OptimizeMakespan {
 	static ArrayList<Integer>[] data = new ArrayList[pmax+1]; 
 	
 	
-	public static double calcDebutLoi( double lambdaE, int thetaE, double succE) { 
-		//Calcule la probabilit� d'obtenir mieux que la meilleure solution �tant donn� les param�tres estim�s
+	public static double calcDebutLoi(double lambdaE, int thetaE, double succE) { 
+		//Calcule la probabilite d'obtenir mieux que la meilleure solution etant donne les parametres estimes
 		int res = 0; 
 		int f = 1; 
-		for (int k =thetaE;k<=bestSolutionFound;k++) { 
-			res += Math.exp(-lambdaE)*Math.pow(lambdaE, k-thetaE)/f;
+		for (int k = thetaE; k <= bestSolutionFound; k++) { 
+			res += Math.exp(-lambdaE) * Math.pow(lambdaE, k-thetaE) / f;
 			f = f * (k-thetaE+1); 
 		}
-		return res*succE ;
+		return res * succE;
 	}
 	
 	
@@ -49,51 +50,42 @@ public class OptimizeMakespan {
 			return 1.0;
 		}
 		
-		if (lambda[q]!=null) { 
-			return calcDebutLoi( lambda[q],theta[q],data[q].size()/((double)trial[q]));			
+		if (lambda[q] != null) { 
+			return calcDebutLoi(lambda[q],theta[q],data[q].size() / ((double)trial[q]));			
 		}
 		
 		int d = q ; 
 		int g = q; 
-		while(d<pmax+1 && lambda[d]==null  ) { 
-			d = d+1 ;
+		while(d < pmax + 1 && lambda[d] == null) { 
+			d = d + 1;
 		}
-		while( g>pmin-1 &&lambda[g]==null ) { 
-			g = g-1 ;
+		while(g > pmin - 1 && lambda[g] == null) { 
+			g = g - 1;
 		}
 		
-		if (d==pmax+1) { 
+		if (d == pmax + 1) { 
 			return expectedSuccess(g);
 		}
-		if (g==pmin-1) { 
+		if (g == pmin - 1) { 
 			return expectedSuccess(d);
 		}
 		
-		double lambdaE = lambda[g]+(lambda[d]-lambda[g])*(q-g)/((double)(d-g));
-		int thetaE = (int)(theta[g]+(theta[d]-theta[g])*(q-g)/((double)(d-g)));
+		double lambdaE = lambda[g] + (lambda[d] - lambda[g]) * (q - g) / ((double)(d - g));
+		int thetaE = (int)(theta[g] + (theta[d] - theta[g]) * (q - g) / ((double)(d - g)));
 		
-		double succg = data[g].size()/trial[g];
-		double succd = data[d].size()/trial[d]; 
+		double succg = data[g].size() / trial[g];
+		double succd = data[d].size() / trial[d]; 
 		
-		double succE = succg+(succd-succg)*(q-g)/((double)(d-g));
-		return calcDebutLoi(lambdaE,thetaE,succE);
+		double succE = succg + (succd - succg) * (q - g) / ((double)(d - g));
+		return calcDebutLoi(lambdaE, thetaE, succE);
 		
-		//Attention aux divisions enti�res !!! 
-		
+		//Attention aux divisions entieres !!! 
 	}
-	
-	
-	
 	
 	
 	public static void main(String[] args) throws IOException {
 		
-		
-		
-		
 		bestSolutionFound = 1000000;
-		
-		
 		
 		System.out.println("Makespan optimization (CG:SHOP 2021 contest)\n");
 		if(args.length<1) {
@@ -117,22 +109,18 @@ public class OptimizeMakespan {
             data[i] = new ArrayList<Integer>(); 
         } 
 		
-		
 		int dmaxRobotCible; 
 		TenetAlgorithm algo;
 		
-		
-		
 		////////////////////// Fin de l'initialisation 
-		
 		
 		Random random = new Random(); 
 		
 		int nbSteps; 
 		boolean calculReussi;
 		
-		int p = pmin + random.nextInt(pmax-pmin+1);
-		premierTour =true; 
+		int p = pmin + random.nextInt(pmax - pmin + 1);
+		premierTour = true; 
 		
 		while (true) { 
 			
@@ -149,8 +137,8 @@ public class OptimizeMakespan {
 						try
 						{
 							// Ecriture log tests 
-							FileWriter fw = new FileWriter(input.name+"_logHistory.csv",true);
-							fw.write(p+";"+algo.solutionFound+";"+algo.getSolution().steps.size()+"\n");
+							FileWriter fw = new FileWriter("log/" + input.name + "_log.csv", true); 
+							fw.write(p + ";" + algo.solutionFound + ";" + algo.getSolution().steps.size() + "\n"); 
 							fw.close();
 						}
 						catch(IOException ioe)
@@ -162,15 +150,12 @@ public class OptimizeMakespan {
 						calculReussi = algo.solutionFound;
 						Solution solution=algo.getSolution();
 						System.out.println(solution); // print the statistics
-						System.out.println("p="+p);
+						System.out.println("p=" + p);
 						
-						if (algo.solutionFound && solution.steps.size()<bestSolutionFound) { 
-							IO.saveSolutionToJSON(solution, input.name+"_makespan.json"); // export the solution in JSON format
-							bestSolutionFound= solution.steps.size();
-							
-							dmaxRobotCible = algo.dmaxRobotCible;
-						
-					//Fin execution 
+						if (algo.solutionFound && solution.steps.size() < bestSolutionFound) { 
+							IO.saveSolutionToJSON(solution, "solutions/" + input.name + "_makespan.json"); // export the solution in JSON format
+							bestSolutionFound= solution.steps.size(); 
+							dmaxRobotCible = algo.dmaxRobotCible; 
 						} 
 						
 						if (calculReussi) { 
@@ -178,9 +163,7 @@ public class OptimizeMakespan {
 						}
 				}
 				
-				
-				
-				//Choix du mouvement � faire 
+				//Choix du mouvement a faire 
 				int q = pmin + random.nextInt(pmax-pmin+1);
 				double u = random.nextDouble();
 				double pi = expectedSuccess(p);
@@ -189,46 +172,30 @@ public class OptimizeMakespan {
 					u = random.nextDouble();		
 				}
 				p = q;
-				
 			}
-			//Reevaluation des param�tres 
+
+			//Reevaluation des parametres 
 			premierTour=false; 
 			for (int q=pmin;q<=pmax;q++) { 
-				if (!data[q].isEmpty()) {
+				if (!data[q].isEmpty()) { 
 					double m = 0; 
 					for (int k=0;k<data[q].size();k++) { 
-						m += data[q].get(k);
+						m += data[q].get(k); 
 					}
 					//On estime la moyenne 
-					m = m/data[q].size();
+					m = m/data[q].size(); 
 					double v =0; 
 					
 					for (int k=0;k<data[q].size();k++) { 
-						int d = data[q].get(k);
-						v += (d-m)*(d-m);
+						int d = data[q].get(k); 
+						v += (d-m)*(d-m); 
 					}
 					//On estime la variance 
-					v = v /(data[q].size()-1);
-					lambda[q]=v;
+					v = v /(data[q].size()-1); 
+					lambda[q]=v; 
 					theta[q]= (int)(m - v) ; 
-					
 				}
 			}
-			
-			
-			
-			
-			
-			
 		}
-		
-		
-		
-		
-		
-		
 	}
 }
-	
-
-	

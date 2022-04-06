@@ -32,5 +32,4 @@ public class OptimizeDistance {
 		System.out.println(solution); // print the statistics
 		IO.saveSolutionToJSON(solution, input.name+"_distance.json"); // export the solution in JSON format
 	}
-
 }

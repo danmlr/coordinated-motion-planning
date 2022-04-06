@@ -15,12 +15,11 @@ public class DistanceAlgorithm extends MotionAlgorithm {
 	 * CHAMPS ET INITIALISATION --------------------------------------------------------------------------------------------------------
 	 */
 	
-	
-	
-	//Param�tres 
+	/** Parameters **/
 	int p = 120; 
 	int q = 120; 
 	int limite = 300; 
+
 	/** An input instance of the motion planning problem **/
 	public Instance input;
 	
@@ -85,22 +84,18 @@ public class DistanceAlgorithm extends MotionAlgorithm {
 	    mymin = ymin - 2 * (ymax - ymin);
 	    mymax = ymax + 2 * (ymax - ymin);
 	    
-	    
-	    
 	    interdit = new byte[n]; 
 	    for (int i=0;i<n;i++) { 
 	    	interdit[i]=-1;
 	    }
-	    
 		
 		this.initMap();
 		this.initMapCible();
 		
 		targets = new Coordinates(n); 
 	    for (int i =0; i<n;i++) { 
-	    	targets.setX(i,this.input.targets.getX(i)) ;
-	    	targets.setY(i,this.input.targets.getY(i)) ;
-	    	
+	    	targets.setX(i,this.input.targets.getX(i));
+	    	targets.setY(i,this.input.targets.getY(i));
 	    }
 	    
 	    initBox(); 
