@@ -1,3 +1,8 @@
+/**
+ * Ckeck the validity of a solution.
+ * 
+ * @author Luca Castelli Aleardi (Ecole Polytechnique, INF421, dec 2020)
+ */
 
 public class CheckSolution {
 	

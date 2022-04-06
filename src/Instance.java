@@ -5,8 +5,8 @@
  * -) the locations of obstacles (if any)
  * 
  * @author Luca Castelli Aleardi (INF421, Ecole Polytechnique, nov 2020)
- *
  */
+
 public class Instance {
     /** coordinates of the bounding box containing the input robots and target positions */
     public int xmin=Integer.MAX_VALUE, xmax=Integer.MIN_VALUE, ymin=Integer.MAX_VALUE, ymax=Integer.MIN_VALUE;

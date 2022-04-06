@@ -1,9 +1,11 @@
 /**
-	 * Main program that takes as input a JSON storing the set of starting and target positions of robots
-	 * and computes a solution to the coordinated motion problem, minimizing the 'makespan'
-	 * 
-	 * @author Luca Castelli Aleardi (Ecole Polytechnique, INF421, dec 2020)
-	 */
+ * Main program that takes as input a JSON storing the set of starting and target positions of robots
+ * and computes a solution to the coordinated motion problem, minimizing the 'makespan'
+ * 
+ * @author Luca Castelli Aleardi (Ecole Polytechnique, INF421, dec 2020)
+ * @author Gonzague de Carpentier (Ecole Polytechnique) 
+ * @author Dan Meller (Ecole Polytechnique)
+ */
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,7 +32,7 @@ public class OptimizeMakespan {
 	
 	
 	public static double calcDebutLoi( double lambdaE, int thetaE, double succE) { 
-		//Calcule la probabilité d'obtenir mieux que la meilleure solution étant donné les paramètres estimés
+		//Calcule la probabilitï¿½ d'obtenir mieux que la meilleure solution ï¿½tant donnï¿½ les paramï¿½tres estimï¿½s
 		int res = 0; 
 		int f = 1; 
 		for (int k =thetaE;k<=bestSolutionFound;k++) { 
@@ -76,7 +78,7 @@ public class OptimizeMakespan {
 		double succE = succg+(succd-succg)*(q-g)/((double)(d-g));
 		return calcDebutLoi(lambdaE,thetaE,succE);
 		
-		//Attention aux divisions entières !!! 
+		//Attention aux divisions entiï¿½res !!! 
 		
 	}
 	
@@ -178,7 +180,7 @@ public class OptimizeMakespan {
 				
 				
 				
-				//Choix du mouvement à faire 
+				//Choix du mouvement ï¿½ faire 
 				int q = pmin + random.nextInt(pmax-pmin+1);
 				double u = random.nextDouble();
 				double pi = expectedSuccess(p);
@@ -189,7 +191,7 @@ public class OptimizeMakespan {
 				p = q;
 				
 			}
-			//Reevaluation des paramètres 
+			//Reevaluation des paramï¿½tres 
 			premierTour=false; 
 			for (int q=pmin;q<=pmax;q++) { 
 				if (!data[q].isEmpty()) {

@@ -1,7 +1,6 @@
 /**
- * An algorithm that computes a solution of the motion planning problem. <br>
+ * An algorithm that computes a solution of the motion planning problem.
  * 
- * @author Luca Castelli Aleardi (INF421, Ecole Polytechnique, dec 2020)
  * @author Gonzague de Carpentier (Ecole Polytechnique) 
  * @author Dan Meller (Ecole Polytechnique)
  */

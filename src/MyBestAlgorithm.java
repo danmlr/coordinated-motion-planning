@@ -1,8 +1,8 @@
 /**
- * An algorithm that computes a solution of the motion planning problem. <br>
+ * An algorithm that computes a solution of the motion planning problem.
  * 
- * @author Luca Castelli Aleardi (INF421, Ecole Polytechnique, dec 2020)
- *
+ * @author Gonzague de Carpentier (Ecole Polytechnique) 
+ * @author Dan Meller (Ecole Polytechnique)
  */
 
 import java.util.LinkedList;
@@ -17,7 +17,7 @@ public class MyBestAlgorithm extends MotionAlgorithm {
 	
 	
 	
-	//Paramètres 
+	//Paramï¿½tres 
 	int p = 120; 
 	int q = 120; 
 	int limite = 300; 
@@ -42,7 +42,7 @@ public class MyBestAlgorithm extends MotionAlgorithm {
 	/** Contient les cibles courantes **/
 	public Coordinates targets;
 	
-	/** box[i] Contient les robots qui définissent la boite de la cible i  **/
+	/** box[i] Contient les robots qui dï¿½finissent la boite de la cible i  **/
 	//box[i][0] contient le robot Nord, 1 : S, 2 : E, 3 :W 
 	public int[][] box; 
 	
@@ -235,7 +235,7 @@ public class MyBestAlgorithm extends MotionAlgorithm {
 			}
 		}
 		
-		// On rajoute aussi les axes intermédiaires 
+		// On rajoute aussi les axes intermï¿½diaires 
 		// 4 : NE 
 		// 7 : SW
 		// 6 : NW
@@ -502,7 +502,7 @@ public class MyBestAlgorithm extends MotionAlgorithm {
 	
 	
 	public void retourMaison() { 
-		//Remet les cibles à leur position initiale 
+		//Remet les cibles ï¿½ leur position initiale 
 		
 		targets = new Coordinates(n); 
 	    for (int i =0; i<n;i++) { 
@@ -549,7 +549,7 @@ public class MyBestAlgorithm extends MotionAlgorithm {
 			x2 = x +motion[0];
 			y2 = y +motion[1]; 
 			if (getMapCible(x2,y2)==-2) { 
-				//On vérifie que le mouvement ne sorte pas de la boite : 
+				//On vï¿½rifie que le mouvement ne sorte pas de la boite : 
 				
 				E = box[i][2]==-2 || (x2<targets.getX(box[i][2]));
 				W = box[i][3]==-2 || (x2>targets.getX(box[i][3]));
@@ -562,7 +562,7 @@ public class MyBestAlgorithm extends MotionAlgorithm {
 				SW= box[i][7]==-2 || (x2>targets.getX(box[i][7])&&y2>targets.getY(box[i][7]));
 				
 					if (N&&S&&E&&W && NE&&SE&&NW&&SW) { 
-					//On cherche à minimiser le produit scalaire avec le barycentre des cibles
+					//On cherche ï¿½ minimiser le produit scalaire avec le barycentre des cibles
 					
 						prod = motion[0]*bary[0]+motion[1]*bary[1];
 						if (prod==minProd) { 

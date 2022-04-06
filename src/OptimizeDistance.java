@@ -1,10 +1,10 @@
+/**
+ * Main program that takes as input a JSON storing the set of starting and target positions of robots
+ * and computes a solution to the coordinated motion problem, minimizing the 'total distance'
+ * 
+ * @author Luca Castelli Aleardi (Ecole Polytechnique, INF421, dec 2020)
+ */
 
-	/**
-	 * Main program that takes as input a JSON storing the set of starting and target positions of robots
-	 * and computes a solution to the coordinated motion problem, minimizing the 'total distance'
-	 * 
-	 * @author Luca Castelli Aleardi (Ecole Polytechnique, INF421, dec 2020)
-	 */
 public class OptimizeDistance {
 	
 	public static void main(String[] args) {

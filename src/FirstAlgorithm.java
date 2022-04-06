@@ -1,8 +1,8 @@
 /**
- * An algorithm that computes a solution of the motion planning problem. <br>
+ * An algorithm that computes a solution of the motion planning problem.
  * 
- * @author Luca Castelli Aleardi (INF421, Ecole Polytechnique, dec 2020)
- *
+ * @author Gonzague de Carpentier (Ecole Polytechnique) 
+ * @author Dan Meller (Ecole Polytechnique)
  */
 
 import java.util.LinkedList;
@@ -66,7 +66,7 @@ public class FirstAlgorithm extends MotionAlgorithm {
 	public boolean tousArrives = false;
 	
 	
-	// Plus grande distance d'un robot à sa cible 
+	// Plus grande distance d'un robot ï¿½ sa cible 
 	public int dmaxRobotCible; 
 	
 	
@@ -247,7 +247,7 @@ public class FirstAlgorithm extends MotionAlgorithm {
 		System.out.print(robots[0]);
 		System.out.println(" ");
 		
-		  //On récupère la distance optimale que l'on remonte dans la chaine hiérarchique 
+		  //On rï¿½cupï¿½re la distance optimale que l'on remonte dans la chaine hiï¿½rarchique 
 	    if (solution.steps.size()==0) { 
 	    	dmaxRobotCible = dmax; 
 	    }
