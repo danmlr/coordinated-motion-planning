@@ -12,28 +12,51 @@ Our method is described in a document that we will publish soon on ResearchGate.
 
 Please ensure that you have java 11 installed. Then you just have to clone the repository. No external library is required.
 
-## Use
+## Compile (optional)
+
+To compile after a change of the source files, use
+```console
+find -name "*.java" > source.txt && javac -cp core3.jar -d bin @source.txt
+```
+
+## Optimize Makespan
+
+To compute a solution to the coordinated motion problem mimizing the makespan, use
 
 ```console
-java --class-path bin:core3.jar OptimizeMakespan instances/images/algae_00000_20x20_40_160.instance.json
+java -cp bin:core3.jar OptimizeMakespan <instance file>
+```
+
+For example:
+
+```console
+java -cp bin:core3.jar OptimizeMakespan instances/images/algae_00000_20x20_40_160.instance.json
 ```
 
 This command executes the OptimizeMakespan class and enters an infinite loop (while true) that explores automatically the different possible values of p and updates the best found solution. You have to stop the programm manually when you consider that the best found solution is good enough.
 
 The values of pmin and pmax can be adjusted directly in the OptimizeMakespan code. However, the generic values are sufficient to get satisfactory results in most cases.
 
-In output, you obtain the best found solution (with the suffix makespan.json) as well as a file with a suffix logHistory.csv which allows you to trace the history of the exploration by the algorithm. The first column of this file contains the value of p, the second a boolean indicating if the calculation was successful and the third column indicates the value of the makespan. 
+In output, you obtain the best found solution (with the suffix makespan.json) as well as a file with a suffix log.csv which allows you to trace the history of the exploration by the algorithm. The first column of this file contains the value of p, the second a boolean indicating if the calculation was successful and the third column indicates the value of the makespan. 
 
-## Other commands
+## Optimize Distance
+
+To compute a solution to the coordinated motion problem mimizing the makespan, use
 
 ```console
-java --class-path bin:core3.jar OptimizeDistance
+java -cp bin:core3.jar OptimizeDistance <instance file>
 ```
 
-```console
-java --class-path bin:core3.jar MotionViewer
-```
+## Visualize solution
+
+To visualize a solution, use
 
 ```console
-java --class-path bin:core3.jar CheckSolution
+java -cp bin:core3.jar MotionViewer <instance file> <solution file>
+```
+
+For example:
+
+```console
+java -cp bin:core3.jar MotionViewer instances/images/algae_00000_20x20_40_160.instance.json solutions/algae_00000_20x20_40_160_makespan.json
 ```
