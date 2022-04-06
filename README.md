@@ -10,7 +10,7 @@ Our method is described in a document that we will publish soon on ResearchGate.
 
 ## Installation
 
-Please ensure that you have java>=11 installed. Then you just have to clone the repository. No external library is required.
+Please ensure that you have java 11 installed. Then you just have to clone the repository. No external library is required.
 
 ## Use
 

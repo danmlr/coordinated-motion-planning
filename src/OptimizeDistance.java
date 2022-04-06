@@ -25,7 +25,7 @@ public class OptimizeDistance {
 		Instance input=IO.loadInputInstance(inputFile); // read the input file
 		System.out.println(input);
 
-		MotionAlgorithm algo=new MyBestAlgorithm(input); 
+		MotionAlgorithm algo=new DistanceAlgorithm(input); 
 		algo.run(); // compute a solution for the input instance
 		
 		Solution solution=algo.getSolution();

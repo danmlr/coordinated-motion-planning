@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class MyBestAlgorithm extends MotionAlgorithm {
+public class DistanceAlgorithm extends MotionAlgorithm {
 	
 	/**
 	 * CHAMPS ET INITIALISATION --------------------------------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ public class MyBestAlgorithm extends MotionAlgorithm {
 	public boolean tousArrives = false;
 	public boolean tousEnPlace = false;
 	
-	public MyBestAlgorithm(Instance input) {
+	public DistanceAlgorithm(Instance input) {
 		this.input=input;
 		this.solution=new Solution(input.name); // create an empty solution (no steps at the beginning)
 		this.current=new Coordinates(this.input.starts.getPositions()); // initialize the current locations with the starting input locations

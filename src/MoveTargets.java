@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class MoveTargets2 extends MotionAlgorithm {
+public class MoveTargets extends MotionAlgorithm {
 	
 	/**
 	 * CHAMPS ET INITIALISATION --------------------------------------------------------------------------------------------------------
@@ -60,7 +60,7 @@ public class MoveTargets2 extends MotionAlgorithm {
 	public int[][] mapCible; 	
 	public Random rd = new Random();
 	
-	public MoveTargets2(Instance input) {
+	public MoveTargets(Instance input) {
 		this.input=input;
 		this.solution=new Solution(input.name); // create an empty solution (no steps at the beginning)
 		this.targets = new Coordinates(this.input.targets.getPositions());

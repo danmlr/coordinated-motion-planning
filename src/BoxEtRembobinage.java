@@ -58,7 +58,7 @@ public class BoxEtRembobinage extends MotionAlgorithm {
 		
 	    //Dilatation des cibles 
 		Instance input0 = new Instance(input.name, input.starts, input.targets, input.obstacles);
-	    MoveTargets2 mt = new MoveTargets2(input0);
+	    MoveTargets mt = new MoveTargets(input0);
 	    mt.p = p;
 	    mt.tailleMax = tailleMax;
 	    mt.run();
