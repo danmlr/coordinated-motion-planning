@@ -1,0 +1,14 @@
+./src/OptimizeDistance.java
+./src/Instance.java
+./src/MotionAlgorithm.java
+./src/IO.java
+./src/Coordinates.java
+./src/OptimizeMakespan.java
+./src/Solution.java
+./src/TenetAlgorithm.java
+./src/MotionViewer.java
+./src/DistanceAlgorithm.java
+./src/PriorityAlgorithm.java
+./src/ScatterTargets.java
+./src/TC.java
+./src/CheckSolution.java

@@ -72,20 +72,10 @@ public class Solution {
 		return result;
 	}
 	
-	/**
-	 * Check whether the solution describe a valid trajectory for all robots and at any step.
-	 * 
-	 * @return TRUE is all motion parallel steps are valid (according to the rules of the problem)
-	 */
-	public boolean isValid() {
-		throw new Error("TO BE COMPLETED");
-	}
-	
 	public String toString() {
 		String result="Solution to the input instance: "+this.name+"\n";
 		result=result+"\tnumber of steps (makespan): "+this.makespan()+"\n";
 		result=result+"\ttotal distance (total number of robot moves): "+this.getTotalDistance();
 		return result;
 	}
-	
 }

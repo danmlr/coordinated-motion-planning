@@ -9,7 +9,6 @@ import processing.core.PApplet;
  * @author Luca Castelli Aleardi (Ecole Polytechnique, INF421, nov 2020)
  */
 
-
 public class MotionViewer extends PApplet {
 	private static final int ROBOTS=0, TARGETS=1;
 

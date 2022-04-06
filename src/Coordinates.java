@@ -3,6 +3,7 @@
  * 
  * @author Luca Castelli Aleardi (Ecole Polytechnique, INF421, dec 2020)
  */
+
 public class Coordinates {
 
     /** array storing 'n' 2D integer coordinates: <br>

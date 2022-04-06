@@ -2,8 +2,8 @@
  * An abstract class defining a generic algorithm that computes a solution of the motion planning problem. <br>
  * 
  * @author Luca Castelli Aleardi (INF421, Ecole Polytechnique, dec 2020)
- *
  */
+
 public abstract class MotionAlgorithm {
 	
 	/**
