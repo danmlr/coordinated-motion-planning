@@ -5,7 +5,7 @@ Dan Meller, Gonzague de Carpentier
 ## Introduction
 
 This repository contains the java implementation of the algorithm we developped to participate in the CG:SHOP 2021 computational geometry competition.
-This project was suggested to us by Luca Castelli Aleardi in the framework of the INF421 course of the École Polytechnique. He also provided us several java classes that are identified in the code by a comment at the beginning of the file.
+This project was suggested to us by Luca Castelli Aleardi in the framework of the INF421 course of the École Polytechnique. He also provided several java classes which are identified in the code by a comment at the beginning of the file.
 Our method is described in a document that we will publish soon on ResearchGate. It allowed us to obtain the 5th place on the global makespan ranking and the 3rd place among junior teams.
 
 ## Installation
