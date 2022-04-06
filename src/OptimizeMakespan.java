@@ -119,7 +119,7 @@ public class OptimizeMakespan {
 		
 		
 		int dmaxRobotCible; 
-		BoxEtRembobinage algo;
+		TenetAlgorithm algo;
 		
 		
 		
@@ -142,7 +142,7 @@ public class OptimizeMakespan {
 						
 						trial[p] = trial[p] + 1 ; 
 						//EXecuter p
-						algo=new BoxEtRembobinage(input); 
+						algo=new TenetAlgorithm(input); 
 						algo.p = p;
 						algo.run(); // compute a solution for the input instance
 						

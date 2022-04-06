@@ -5,7 +5,7 @@
  * @author Dan Meller (Ecole Polytechnique)
  */
 
-public class BoxEtRembobinage extends MotionAlgorithm {
+public class TenetAlgorithm extends MotionAlgorithm {
 	
 	/**
 	 * CHAMPS ET INITIALISATION --------------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@ public class BoxEtRembobinage extends MotionAlgorithm {
 	//distance maximale entre un robots et sa cible 
 	public int dmaxRobotCible; 
 	
-	public BoxEtRembobinage(Instance input) {
+	public TenetAlgorithm(Instance input) {
 		this.input=input;
 		this.solution=new Solution(input.name); // create an empty solution (no steps at the beginning)
 		n = input.n;
@@ -58,7 +58,7 @@ public class BoxEtRembobinage extends MotionAlgorithm {
 		
 	    //Dilatation des cibles 
 		Instance input0 = new Instance(input.name, input.starts, input.targets, input.obstacles);
-	    MoveTargets mt = new MoveTargets(input0);
+	    ScatterTargets mt = new ScatterTargets(input0);
 	    mt.p = p;
 	    mt.tailleMax = tailleMax;
 	    mt.run();
@@ -66,14 +66,14 @@ public class BoxEtRembobinage extends MotionAlgorithm {
 	    targets = mt.targets;
 	    
 	    Instance input1 = new Instance(input.name, input.starts, targets, input.obstacles);
-	    FirstAlgorithm algo1 = new FirstAlgorithm(input1);
+	    PriorityAlgorithm algo1 = new PriorityAlgorithm(input1);
 	    algo1.limite = limite1;
 	    algo1.run();
 	    
 	    dmaxRobotCible = algo1.dmaxRobotCible;
 	    
 	    Instance input2 = new Instance(input.name, input.targets, algo1.current, input.obstacles);
-	    FirstAlgorithm algo2 = new FirstAlgorithm(input2);
+	    PriorityAlgorithm algo2 = new PriorityAlgorithm(input2);
 	    algo2.limite = limite2;
 	    algo2.run();
 	    
@@ -87,7 +87,7 @@ public class BoxEtRembobinage extends MotionAlgorithm {
 	    /**
 	    if (algo2.kebloPendant >= algo2.kebloMax && algo2.dmin <= 15) {
 	    	Instance input3 = new Instance(input.name, algo2.current, algo1.current, input.obstacles);
-	    	FirstAlgorithm3 algo3 = new FirstAlgorithm3(input3, algo2.robots);
+	    	PriorityAlgorithm3 algo3 = new PriorityAlgorithm3(input3, algo2.robots);
 		    algo3.run();
 		    for (int i = algo3.solution.steps.size() - 1; i >=0 ; i--) {
 		    	step = algo3.solution.steps.get(i);
