@@ -6,10 +6,16 @@ Dan Meller, Gonzague de Carpentier
 
 This repository contains the java implementation of the algorithm we developped to participate in the CG:SHOP 2021 computational geometry competition.
 This project was suggested to us by Luca Castelli Aleardi in the framework of the INF421 course of the École Polytechnique. He also provided several java classes which are identified in the code by a comment at the beginning of the file.
-Our method is described in a document that we will publish soon on ResearchGate. It allowed us to obtain the 5th place on the global makespan ranking and the 3rd place among junior teams.
+Our method is described in a document that we will publish soon on ResearchGate. It allowed us to obtain the 5th place worldwide on the global makespan ranking and the 3rd place among junior teams.
 
 
 ![](https://github.com/danmlr/coordinated-motion-planning/blob/main/animation.gif)
+
+
+The animation above illustrates the result of our algorithm on a simple instance. Each robot goes from its start positions to its target (the end position on the animation). In a nutshell, our method uses intermediary targets to simplify the problem. This can be clearly seen in the animation : two phases can be observed. During the first (and longest) phase robots try to reach their intermediary targets. During the second phase, the robot cloud converges to the real targets, this happens very fast because intermediary targets preserved the topological structure of the real targets (thanks to a carefully crafted method for choosing intermediary targets). 
+
+We believe that this idea could be optimized further to reach better performances. One possible improvement could be to find intermediary targets that are topologically closer to the start positions so that the process becomes more symmetrical. 
+
 
 ## Installation
 
