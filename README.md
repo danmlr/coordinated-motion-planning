@@ -9,7 +9,7 @@ This project was suggested to us by Luca Castelli Aleardi in the framework of th
 Our method is described in a document that we will publish soon on ResearchGate. It allowed us to obtain the 5th place on the global makespan ranking and the 3rd place among junior teams.
 
 
-![](https://github.com/danmlr/coordinated-motion-planning/animation.gif)
+![](https://github.com/danmlr/coordinated-motion-planning/blob/main/animation.gif)
 
 ## Installation
 
